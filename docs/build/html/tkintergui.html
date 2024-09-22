@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>tkintergui module &mdash; School Management System  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pyqtgui module" href="pyqtgui.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab2 With Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_management.html">data_management module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">database module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyqtgui.html">pyqtgui module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">tkintergui module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.students"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.students</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.instructors"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.instructors</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.courses"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.courses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.add_course"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.add_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.add_instructor"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.add_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.add_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.add_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.assign_instructor"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.assign_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.clear_treeview"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.clear_treeview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.delete_record"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.delete_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.edit_course"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.edit_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.edit_instructor"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.edit_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.edit_record"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.edit_record()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.edit_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.edit_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.export_to_csv"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.export_to_csv()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.load_data"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.load_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.refresh_data"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.refresh_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.register_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.register_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.save_data"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.save_data()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.search_courses"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.search_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.search_instructors"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.search_instructors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.search_records"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.search_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.select_course_to_view"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.select_course_to_view()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_course_form"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_course_form()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_data_buttons"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_data_buttons()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_display_records"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_display_records()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_gui"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_gui()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_instructor_form"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_instructor_form()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_registration_form"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_registration_form()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_search"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_search()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_student_form"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_student_form()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.setup_switch_buttons"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.setup_switch_buttons()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.show_courses"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.show_courses()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.show_instructors"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.show_instructors()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.show_registered_students"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.show_registered_students()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.update_comboboxes"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.update_comboboxes()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.update_course"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.update_course()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.update_instructor"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.update_instructor()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.update_student"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.update_student()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tkintergui.SchoolManagementSystemApp.update_table"><code class="docutils literal notranslate"><span class="pre">SchoolManagementSystemApp.update_table()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Lab2 With Database</a></li>
+      <li class="breadcrumb-item active">tkintergui module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tkintergui.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-tkintergui">
+<span id="tkintergui-module"></span><h1>tkintergui module<a class="headerlink" href="#module-tkintergui" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">SchoolManagementSystemApp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Main window for the School Management System Application using TK.</p>
+<p>This class provides the main functionality for managing students, instructors, courses, and student registrations.
+Users can add, edit, delete, search, and display students, instructors, and courses. Additionally, the class
+supports saving and loading data from JSON files, exporting to CSV, and viewing registered students per course.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.students">
+<span class="sig-name descname"><span class="pre">students</span></span><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.students" title="Link to this definition"></a></dt>
+<dd><p>List of students currently loaded from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.instructors">
+<span class="sig-name descname"><span class="pre">instructors</span></span><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.instructors" title="Link to this definition"></a></dt>
+<dd><p>List of instructors currently loaded from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.courses">
+<span class="sig-name descname"><span class="pre">courses</span></span><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.courses" title="Link to this definition"></a></dt>
+<dd><p>List of courses currently loaded from the database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.add_course">
+<span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.add_course" title="Link to this definition"></a></dt>
+<dd><p>Add a new course to the system.</p>
+<p>This method retrieves the course’s name, ID, and instructor’s name from the form.
+It fetches the instructor’s ID from the list of instructors and adds the course to the database
+using the <cite>add_course</cite> function. If the instructor is not found, an error message is shown.</p>
+<p>Raises:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.add_instructor">
+<span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Add a new instructor to the system.</p>
+<p>This method retrieves the instructor’s name, age, email, and ID from the form,
+and attempts to add the instructor to the database using the <cite>add_instructor</cite> function.
+If the instructor ID already exists in the database, an error message is shown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sqlite3.IntegrityError</strong> – If the instructor ID already exists in the database.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.add_student" title="Link to this definition"></a></dt>
+<dd><p>Add a new student to the system.</p>
+<p>This method retrieves the student’s name, age, email, and ID from the form,
+and attempts to add the student to the database using the <cite>add_student</cite> function.
+If the student ID already exists in the database, an error message is shown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sqlite3.IntegrityError</strong> – If the student ID already exists in the database.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.assign_instructor">
+<span class="sig-name descname"><span class="pre">assign_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.assign_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.assign_instructor" title="Link to this definition"></a></dt>
+<dd><p>Assign an instructor to a course.</p>
+<p>This method retrieves the course name and instructor name from the form.
+It fetches the corresponding course and instructor objects from the system
+and assigns the instructor to the course. If the course or instructor is not found,
+an error message is shown.</p>
+<p>Raises:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.clear_treeview">
+<span class="sig-name descname"><span class="pre">clear_treeview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.clear_treeview"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.clear_treeview" title="Link to this definition"></a></dt>
+<dd><p>Clear the given QTableWidget by removing all rows.</p>
+<p>This method is useful when switching views or refreshing data in the table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>table_widget</strong> (<em>QTableWidget</em>) – The table to be cleared of all rows.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.delete_record">
+<span class="sig-name descname"><span class="pre">delete_record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.delete_record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.delete_record" title="Link to this definition"></a></dt>
+<dd><p>Delete the selected record (student, instructor, or course) from the database.</p>
+<p>This method identifies the selected record in the table, fetches the corresponding data
+from the database (either a student, instructor, or course), and deletes it. After deletion,
+the table is refreshed with the remaining records.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.edit_course">
+<span class="sig-name descname"><span class="pre">edit_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.edit_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.edit_course" title="Link to this definition"></a></dt>
+<dd><p>Populate the course form with the selected course’s data for editing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course</strong> (<a class="reference internal" href="models.html#models.Course" title="models.Course"><em>Course</em></a>) – A Course object representing the selected course.</p>
+</dd>
+</dl>
+<p>The method fills in the fields of the course form with the course’s information,
+including the instructor, and changes the “Add Course” button to “Update Course”
+with a new command to update the course information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.edit_instructor">
+<span class="sig-name descname"><span class="pre">edit_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.edit_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.edit_instructor" title="Link to this definition"></a></dt>
+<dd><p>Populate the instructor form with the selected instructor’s data for editing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructor</strong> (<a class="reference internal" href="models.html#models.Instructor" title="models.Instructor"><em>Instructor</em></a>) – An Instructor object representing the selected instructor.</p>
+</dd>
+</dl>
+<p>The method fills in the fields of the instructor form with the instructor’s information,
+and changes the “Add Instructor” button to “Update Instructor” with a new command
+to update the instructor’s information.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.edit_record">
+<span class="sig-name descname"><span class="pre">edit_record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.edit_record"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.edit_record" title="Link to this definition"></a></dt>
+<dd><p>Edit the selected record (student, instructor, or course) in the database.</p>
+<p>This method retrieves the selected record from the table, checks if it is a student, instructor,
+or course, and calls the appropriate edit method to allow the user to modify the record.</p>
+<p>Raises:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.edit_student">
+<span class="sig-name descname"><span class="pre">edit_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.edit_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.edit_student" title="Link to this definition"></a></dt>
+<dd><p>Populate the student form with the selected student’s data for editing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> (<em>tuple</em>) – A tuple representing the selected student’s data,
+containing (student_id, name, age, email).</p>
+</dd>
+</dl>
+<p>The method fills in the fields of the student form with the student’s information,
+disables the student ID field (to prevent changing it), and changes the “Add Student” button
+to “Update Student” with a new command to update the student.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.export_to_csv">
+<span class="sig-name descname"><span class="pre">export_to_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.export_to_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.export_to_csv" title="Link to this definition"></a></dt>
+<dd><p>Export the current students, instructors, and courses data to a CSV file.</p>
+<p>The user is prompted to choose a location and filename to save the CSV file.
+The data is exported in three sections: Students, Instructors, and Courses, each with its own
+set of column headers and data rows.</p>
+<ul class="simple">
+<li><p>Students: Includes student ID, name, email, and age.</p></li>
+<li><p>Instructors: Includes instructor ID, name, email, and age.</p></li>
+<li><p>Courses: Includes course ID, course name, instructor name, and a list of registered student IDs.</p></li>
+</ul>
+<p>If the export is successful, a message box is displayed to confirm the export.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.load_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.load_data" title="Link to this definition"></a></dt>
+<dd><p>Load student, instructor, and course data from the database.</p>
+<p>This method retrieves the latest data from the database and populates
+the table with students and instructors. The combo boxes for student registration
+are also updated with the latest data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.refresh_data">
+<span class="sig-name descname"><span class="pre">refresh_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.refresh_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.refresh_data" title="Link to this definition"></a></dt>
+<dd><p>Load the saved data from a JSON file and refresh the application tables and comboboxes.</p>
+<p>This method reads data from ‘school_data.json’ and populates the application with saved students,
+instructors, and courses. It updates the table and comboboxes accordingly. If no saved data is found,
+a warning message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>FileNotFoundError</strong> – If the ‘school_data.json’ file is not found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.register_student">
+<span class="sig-name descname"><span class="pre">register_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.register_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.register_student" title="Link to this definition"></a></dt>
+<dd><p>Register a student for a course.</p>
+<p>This method retrieves the student’s name and the course name from the dropdown menus.
+It fetches the corresponding student and course records and attempts to insert a registration
+record into the <cite>registrations</cite> table in the database. If the student is already registered for
+the course, an error message is shown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sqlite3.IntegrityError</strong> – If the student is already registered for the course.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.save_data">
+<span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.save_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.save_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.search_courses">
+<span class="sig-name descname"><span class="pre">search_courses</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treeview</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_query</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.search_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.search_courses" title="Link to this definition"></a></dt>
+<dd><p>Search for courses in the system based on a search query.</p>
+<p>Filters the list of courses by checking if the search query matches the course’s ID or name.
+Updates the provided table widget with the filtered results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_widget</strong> (<em>QTableWidget</em>) – The table to display the filtered courses.</p></li>
+<li><p><strong>search_query</strong> (<em>str</em>) – The query used to search for courses by name or ID.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.search_instructors">
+<span class="sig-name descname"><span class="pre">search_instructors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">treeview</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_query</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.search_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.search_instructors" title="Link to this definition"></a></dt>
+<dd><p>Search for instructors in the system based on a search query.</p>
+<p>Filters the list of instructors by checking if the search query matches the instructor’s ID or name.
+Updates the provided table widget with the filtered results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>table_widget</strong> (<em>QTableWidget</em>) – The table to display the filtered instructors.</p></li>
+<li><p><strong>search_query</strong> (<em>str</em>) – The query used to search for instructors by name or ID.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.search_records">
+<span class="sig-name descname"><span class="pre">search_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.search_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.search_records" title="Link to this definition"></a></dt>
+<dd><p>Search and filter student records based on user input.</p>
+<p>This method retrieves the search query entered by the user, clears the current table,
+and populates the table with student records whose ID or name matches the search query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.select_course_to_view">
+<span class="sig-name descname"><span class="pre">select_course_to_view</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.select_course_to_view"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.select_course_to_view" title="Link to this definition"></a></dt>
+<dd><p>Display a popup window for the user to select a course and view registered students.</p>
+<p>Once a course is selected, the list of registered students for that course will be displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_course_form">
+<span class="sig-name descname"><span class="pre">setup_course_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_course_form"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_course_form" title="Link to this definition"></a></dt>
+<dd><p>Set up the form for adding and managing course records.</p>
+<p>This form contains input fields for:
+- Course Name
+- Course ID
+- Instructor (Dropdown for selecting an instructor)</p>
+<p>It also includes a button to add the course to the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_data_buttons">
+<span class="sig-name descname"><span class="pre">setup_data_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_data_buttons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_data_buttons" title="Link to this definition"></a></dt>
+<dd><p>Set up buttons for saving, refreshing, editing, and deleting data records.</p>
+<p>Adds buttons to:
+- Save data to a JSON file.
+- Refresh the table with the latest data.
+- Edit a selected record.
+- Delete a selected record.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>layout</strong> (<em>QVBoxLayout</em>) – The main layout where the buttons are added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_display_records">
+<span class="sig-name descname"><span class="pre">setup_display_records</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_display_records"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_display_records" title="Link to this definition"></a></dt>
+<dd><p>Set up the main table to display records of students, instructors, and courses.</p>
+<p>This method creates a QTableWidget to display records, which will be populated by
+the load_data method with student, instructor, and course data.</p>
+<p>Parameters:</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_gui">
+<span class="sig-name descname"><span class="pre">setup_gui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_gui"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_gui" title="Link to this definition"></a></dt>
+<dd><p>Sets up the GUI layout for the School Management System.</p>
+<p>This method initializes the main layout, including the tabbed sections for students, instructors,
+courses, and registration forms.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_instructor_form">
+<span class="sig-name descname"><span class="pre">setup_instructor_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_instructor_form"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_instructor_form" title="Link to this definition"></a></dt>
+<dd><p>Set up the form for adding and managing instructor records.</p>
+<p>This form contains input fields for:
+- Instructor Name
+- Instructor Age
+- Instructor Email
+- Instructor ID</p>
+<p>It also includes a button to add the instructor to the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_registration_form">
+<span class="sig-name descname"><span class="pre">setup_registration_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_registration_form"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_registration_form" title="Link to this definition"></a></dt>
+<dd><p>Set up the form for registering students to courses.</p>
+<p>This form contains dropdowns for selecting:
+- A student from a list of registered students
+- A course from a list of available courses</p>
+<p>It also includes a button to register the selected student for the selected course.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_search">
+<span class="sig-name descname"><span class="pre">setup_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_search"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_search" title="Link to this definition"></a></dt>
+<dd><p>Set up search functionality to search through records based on user input.</p>
+<p>Creates a search bar and a button to trigger the search. The search filters through
+student, instructor, or course records, displaying matching entries in the table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>layout</strong> (<em>QVBoxLayout</em>) – The main layout where the search bar and button are added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_student_form">
+<span class="sig-name descname"><span class="pre">setup_student_form</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_student_form"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_student_form" title="Link to this definition"></a></dt>
+<dd><p>Set up the form for adding and managing student records.</p>
+<p>This form contains input fields for:
+- Student Name
+- Student Age
+- Student Email
+- Student ID</p>
+<p>It also includes a button to add the student to the database.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.setup_switch_buttons">
+<span class="sig-name descname"><span class="pre">setup_switch_buttons</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.setup_switch_buttons"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.setup_switch_buttons" title="Link to this definition"></a></dt>
+<dd><p>Set up buttons to switch between views of registered students, instructors, and courses.</p>
+<p>Adds buttons for:
+- Viewing registered students for a specific course.
+- Viewing all instructors.
+- Viewing all courses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>layout</strong> (<em>QVBoxLayout</em>) – The main layout where the buttons are added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.show_courses">
+<span class="sig-name descname"><span class="pre">show_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.show_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.show_courses" title="Link to this definition"></a></dt>
+<dd><p>Display a new window with a list of all courses in the system.</p>
+<p>The window includes a table displaying course details such as:
+- Course ID
+- Course Name
+- Instructor Name</p>
+<p>A search feature is provided to filter courses based on the search query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.show_instructors">
+<span class="sig-name descname"><span class="pre">show_instructors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.show_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.show_instructors" title="Link to this definition"></a></dt>
+<dd><p>Display a new window with a list of all instructors in the system.</p>
+<p>The window includes a table displaying instructor details such as:
+- ID
+- Name
+- Email
+- Age</p>
+<p>A search feature is also provided to filter instructors based on the search query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.show_registered_students">
+<span class="sig-name descname"><span class="pre">show_registered_students</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.show_registered_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.show_registered_students" title="Link to this definition"></a></dt>
+<dd><p>Display a new window with the list of students registered for the selected course.</p>
+<p>After selecting a course from the dropdown, this method fetches the students registered for that course
+and displays them in a popup window. If no students are registered for the course, an information message is shown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>None</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.update_comboboxes">
+<span class="sig-name descname"><span class="pre">update_comboboxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">students</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">courses</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.update_comboboxes"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.update_comboboxes" title="Link to this definition"></a></dt>
+<dd><p>Update the values in the comboboxes for students, instructors, and courses.</p>
+<p>This method updates the comboboxes with the latest students, instructors, and courses from the system
+to be used in forms for registration, adding courses, and other operations.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.update_course">
+<span class="sig-name descname"><span class="pre">update_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.update_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.update_course" title="Link to this definition"></a></dt>
+<dd><p>Update the selected course’s data in the database and in the TreeView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course</strong> (<a class="reference internal" href="models.html#models.Course" title="models.Course"><em>Course</em></a>) – A Course object representing the course to be updated.</p>
+</dd>
+</dl>
+<p>The method retrieves the updated course data from the form fields, including the selected
+instructor, updates the course information in the database, and updates the corresponding
+row in the TreeView. After the update, the “Update Course” button is reset to “Add Course.”</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.update_instructor">
+<span class="sig-name descname"><span class="pre">update_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.update_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.update_instructor" title="Link to this definition"></a></dt>
+<dd><p>Update the selected instructor’s data in the database and in the TreeView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructor</strong> (<a class="reference internal" href="models.html#models.Instructor" title="models.Instructor"><em>Instructor</em></a>) – An Instructor object representing the instructor to be updated.</p>
+</dd>
+</dl>
+<p>The method retrieves the updated instructor data from the form fields, updates the
+instructor’s information in the database, and updates the corresponding row in the TreeView.
+After the update, the “Update Instructor” button is reset to “Add Instructor.”</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.update_student">
+<span class="sig-name descname"><span class="pre">update_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.update_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.update_student" title="Link to this definition"></a></dt>
+<dd><p>Update the selected student’s data in the database and in the TreeView.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> (<em>tuple</em>) – A tuple representing the selected student’s data,
+containing (student_id, name, age, email).</p>
+</dd>
+</dl>
+<p>The method retrieves the updated student data from the form fields, updates the
+student’s information in the database, and updates the corresponding row in the TreeView.
+After the update, the “Update Student” button is reset to “Add Student,” and the
+student ID field is re-enabled.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="tkintergui.SchoolManagementSystemApp.update_table">
+<span class="sig-name descname"><span class="pre">update_table</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/tkintergui.html#SchoolManagementSystemApp.update_table"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#tkintergui.SchoolManagementSystemApp.update_table" title="Link to this definition"></a></dt>
+<dd><p>Update the table with new entries for students, instructors, or courses.</p>
+<p>This method inserts a new row into the table with the provided ID, name, and type (Student, Instructor, or Course).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id_value</strong> (<em>str</em>) – The ID of the entry to add.</p></li>
+<li><p><strong>name_value</strong> (<em>str</em>) – The name of the entry to add.</p></li>
+<li><p><strong>type_value</strong> (<em>str</em>) – The type of the entry (e.g., ‘Student’, ‘Instructor’, ‘Course’).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pyqtgui.html" class="btn btn-neutral float-left" title="pyqtgui module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nader Al Masri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>database module &mdash; School Management System  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="main module" href="main.html" />
+    <link rel="prev" title="data_management module" href="data_management.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab2 With Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_management.html">data_management module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">database module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#database.add_course"><code class="docutils literal notranslate"><span class="pre">add_course()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.add_instructor"><code class="docutils literal notranslate"><span class="pre">add_instructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.add_student"><code class="docutils literal notranslate"><span class="pre">add_student()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.create_database"><code class="docutils literal notranslate"><span class="pre">create_database()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.delete_course"><code class="docutils literal notranslate"><span class="pre">delete_course()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.delete_instructor"><code class="docutils literal notranslate"><span class="pre">delete_instructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.delete_student"><code class="docutils literal notranslate"><span class="pre">delete_student()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.fetch_courses"><code class="docutils literal notranslate"><span class="pre">fetch_courses()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.fetch_instructors"><code class="docutils literal notranslate"><span class="pre">fetch_instructors()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.fetch_registered_students"><code class="docutils literal notranslate"><span class="pre">fetch_registered_students()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.fetch_students"><code class="docutils literal notranslate"><span class="pre">fetch_students()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.update_course"><code class="docutils literal notranslate"><span class="pre">update_course()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.update_instructor"><code class="docutils literal notranslate"><span class="pre">update_instructor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database.update_student"><code class="docutils literal notranslate"><span class="pre">update_student()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="models.html">models module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyqtgui.html">pyqtgui module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkintergui.html">tkintergui module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Lab2 With Database</a></li>
+      <li class="breadcrumb-item active">database module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/database.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-database">
+<span id="database-module"></span><h1>database module<a class="headerlink" href="#module-database" title="Link to this heading"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="database.add_course">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#add_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.add_course" title="Link to this definition"></a></dt>
+<dd><p>Add a new course to the Courses table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>course_id</strong> (<em>str</em>) – The unique identifier for the course.</p></li>
+<li><p><strong>course_name</strong> (<em>str</em>) – The name of the course.</p></li>
+<li><p><strong>instructor_id</strong> (<em>str</em>) – The ID of the instructor assigned to the course (must exist in the Instructors table).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.add_instructor">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#add_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.add_instructor" title="Link to this definition"></a></dt>
+<dd><p>Add a new instructor to the Instructors table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor_id</strong> (<em>str</em>) – The unique identifier for the instructor.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the instructor.</p></li>
+<li><p><strong>age</strong> (<em>int</em>) – The age of the instructor.</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – The email of the instructor.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.add_student">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.add_student" title="Link to this definition"></a></dt>
+<dd><p>Add a new student to the Students table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student_id</strong> (<em>str</em>) – The unique identifier for the student.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the student.</p></li>
+<li><p><strong>age</strong> (<em>int</em>) – The age of the student.</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – The email of the student.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.create_database">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">create_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#create_database"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.create_database" title="Link to this definition"></a></dt>
+<dd><p>Create the database and necessary tables for the School Management System.</p>
+<p>This function creates four tables:
+- Students: Stores student information (student_id, name, age, email).
+- Instructors: Stores instructor information (instructor_id, name, age, email).
+- Courses: Stores course information (course_id, course_name, instructor_id), and establishes</p>
+<blockquote>
+<div><p>a foreign key relationship with the Instructors table.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Registrations: Links students to courses, with foreign keys referencing both the Students and Courses tables.</p></li>
+</ul>
+<p>If the tables already exist, they will not be recreated.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.delete_course">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">delete_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#delete_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.delete_course" title="Link to this definition"></a></dt>
+<dd><p>Delete a course from the Courses table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course_id</strong> (<em>str</em>) – The unique identifier of the course to delete.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Deletes the course from the database based on the course ID.</p></li>
+<li><p>Commits the deletion to the database.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.delete_instructor">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">delete_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#delete_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.delete_instructor" title="Link to this definition"></a></dt>
+<dd><p>Delete an instructor from the Instructors table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructor_id</strong> (<em>str</em>) – The unique identifier of the instructor to delete.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Deletes the instructor from the database based on the instructor ID.</p></li>
+<li><p>Commits the deletion to the database.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.delete_student">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">delete_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#delete_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.delete_student" title="Link to this definition"></a></dt>
+<dd><p>Delete a student from the Students table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student_id</strong> (<em>str</em>) – The unique identifier of the student to delete.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Deletes the student from the database based on the student ID.</p></li>
+<li><p>Commits the deletion to the database.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.fetch_courses">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">fetch_courses</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#fetch_courses"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.fetch_courses" title="Link to this definition"></a></dt>
+<dd><p>Fetch all courses from the Courses table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all courses, where each course is represented as a tuple
+(course_id, course_name, instructor_id).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.fetch_instructors">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">fetch_instructors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#fetch_instructors"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.fetch_instructors" title="Link to this definition"></a></dt>
+<dd><p>Fetch all instructors from the Instructors table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all instructors, where each instructor is represented as a tuple
+(instructor_id, name, age, email).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.fetch_registered_students">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">fetch_registered_students</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#fetch_registered_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.fetch_registered_students" title="Link to this definition"></a></dt>
+<dd><p>Fetch all students registered for a specific course by course ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course_id</strong> (<em>str</em>) – The unique identifier of the course.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of students registered for the course, where each student is represented
+as a tuple (student_id, name, email, age).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list of tuple</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Queries the database to retrieve all students who are registered for the specified course.</p></li>
+<li><p>Joins the Students and Registrations tables to obtain the details of registered students.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.fetch_students">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">fetch_students</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#fetch_students"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.fetch_students" title="Link to this definition"></a></dt>
+<dd><p>Fetch all students from the Students table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of all students, where each student is represented as a tuple
+(student_id, name, age, email).</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>list of tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.update_course">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">update_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#update_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.update_course" title="Link to this definition"></a></dt>
+<dd><p>Update the details of an existing course in the Courses table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>course_id</strong> (<em>str</em>) – The unique identifier of the course to update.</p></li>
+<li><p><strong>course_name</strong> (<em>str</em>) – The updated name of the course.</p></li>
+<li><p><strong>instructor_id</strong> (<em>str</em>) – The ID of the instructor assigned to the course.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Updates the course name and instructor ID for the specified course.</p></li>
+<li><p>Commits the changes to the database after the update.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.update_instructor">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">update_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#update_instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.update_instructor" title="Link to this definition"></a></dt>
+<dd><p>Update the details of an existing instructor in the Instructors table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor_id</strong> (<em>str</em>) – The unique identifier of the instructor to update.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The updated name of the instructor.</p></li>
+<li><p><strong>age</strong> (<em>int</em>) – The updated age of the instructor.</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – The updated email of the instructor.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Updates the instructor’s name, age, and email in the database for the specified instructor ID.</p></li>
+<li><p>Commits the changes to the database after the update.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="database.update_student">
+<span class="sig-prename descclassname"><span class="pre">database.</span></span><span class="sig-name descname"><span class="pre">update_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/database.html#update_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#database.update_student" title="Link to this definition"></a></dt>
+<dd><p>Update the details of an existing student in the Students table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student_id</strong> (<em>str</em>) – The unique identifier of the student to update.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The updated name of the student.</p></li>
+<li><p><strong>age</strong> (<em>int</em>) – The updated age of the student.</p></li>
+<li><p><strong>email</strong> (<em>str</em>) – The updated email of the student.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_management.html" class="btn btn-neutral float-left" title="data_management module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="main.html" class="btn btn-neutral float-right" title="main module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nader Al Masri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
