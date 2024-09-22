@@ -1,0 +1,80 @@
+{
+    "students": [
+        [
+            "karim",
+            22,
+            "karim@aub.edu.lb",
+            "202209833"
+        ],
+        [
+            "aba",
+            209,
+            "aba@mail.aub.edu",
+            "209383839"
+        ],
+        [
+            "Ahmad",
+            21,
+            "ahmad@aub.edu.lb",
+            "2018181818"
+        ],
+        [
+            "rami",
+            23,
+            "rami@aub.edu.lb",
+            "201342434"
+        ]
+    ],
+    "instructors": [
+        [
+            "Ali EL hussein",
+            34,
+            "alihuss@hotmail.com",
+            "2018282828"
+        ],
+        [
+            "iman",
+            33,
+            "iman@aub.edu.lb",
+            "2023456666"
+        ],
+        [
+            "Ali Chehab",
+            55,
+            "chehab@aub.edu.lb",
+            "2003918811"
+        ],
+        [
+            "Hassan",
+            28,
+            "hassansh@aub.edu.lb",
+            "20818181818"
+        ]
+    ],
+    "courses": [
+        {
+            "course_id": "566",
+            "course_name": "eece455",
+            "instructor": "2018282828",
+            "students": []
+        },
+        {
+            "course_id": "89787",
+            "course_name": "eece435l",
+            "instructor": "2023456666",
+            "students": []
+        },
+        {
+            "course_id": "222",
+            "course_name": "eece231",
+            "instructor": "2018282828",
+            "students": []
+        },
+        {
+            "course_id": "2233",
+            "course_name": "eece990",
+            "instructor": "20818181818",
+            "students": []
+        }
+    ]
+}

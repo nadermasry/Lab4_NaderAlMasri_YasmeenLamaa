@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models &mdash; School Management System  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Lab2 With Database</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">models</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for models</h1><div class="highlight"><pre>
+<span></span><span class="c1"># models.py</span>
+<div class="viewcode-block" id="Person">
+<a class="viewcode-back" href="../models.html#models.Person">[docs]</a>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a person with basic attributes like name, age, and email.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        name (str): The name of the person.</span>
+<span class="sd">        age (int): The age of the person.</span>
+<span class="sd">        _email (str): The private email address of the person.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Person object with a name, age, and email.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the person.</span>
+<span class="sd">            age (int): The age of the person.</span>
+<span class="sd">            email (str): The email address of the person.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_email</span> <span class="o">=</span> <span class="n">email</span>
+
+<div class="viewcode-block" id="Person.introduce">
+<a class="viewcode-back" href="../models.html#models.Person.introduce">[docs]</a>
+    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Introduce the person.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            str: A string introducing the person with their name and age.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;Hello, my name is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> and I am </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old.&quot;</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Student">
+<a class="viewcode-back" href="../models.html#models.Student">[docs]</a>
+<span class="k">class</span> <span class="nc">Student</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a student, which inherits from the Person class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        student_id (str): The unique ID of the student.</span>
+<span class="sd">        registered_courses (list): A list of courses the student has registered for.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">student_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Student object with a name, age, email, and student ID.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the student.</span>
+<span class="sd">            age (int): The age of the student.</span>
+<span class="sd">            email (str): The email address of the student.</span>
+<span class="sd">            student_id (str): The unique ID of the student.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">student_id</span> <span class="o">=</span> <span class="n">student_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Student.register_course">
+<a class="viewcode-back" href="../models.html#models.Student.register_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">register_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Register the student for a course.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            course (Course): The course to register the student for.</span>
+
+<span class="sd">        Actions:</span>
+<span class="sd">            - Adds the course to the student&#39;s list of registered courses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">registered_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Instructor">
+<a class="viewcode-back" href="../models.html#models.Instructor">[docs]</a>
+<span class="k">class</span> <span class="nc">Instructor</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing an instructor, which inherits from the Person class.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        instructor_id (str): The unique ID of the instructor.</span>
+<span class="sd">        assigned_courses (list): A list of courses assigned to the instructor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Instructor object with a name, age, email, and instructor ID.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            name (str): The name of the instructor.</span>
+<span class="sd">            age (int): The age of the instructor.</span>
+<span class="sd">            email (str): The email address of the instructor.</span>
+<span class="sd">            instructor_id (str): The unique ID of the instructor.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor_id</span> <span class="o">=</span> <span class="n">instructor_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="Instructor.assign_course">
+<a class="viewcode-back" href="../models.html#models.Instructor.assign_course">[docs]</a>
+    <span class="k">def</span> <span class="nf">assign_course</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Assign the instructor to a course.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            course (Course): The course to assign to the instructor.</span>
+
+<span class="sd">        Actions:</span>
+<span class="sd">            - Adds the course to the instructor&#39;s list of assigned courses.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assigned_courses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">course</span><span class="p">)</span></div>
+</div>
+
+
+<div class="viewcode-block" id="Course">
+<a class="viewcode-back" href="../models.html#models.Course">[docs]</a>
+<span class="k">class</span> <span class="nc">Course</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class representing a course.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        course_id (str): The unique ID of the course.</span>
+<span class="sd">        course_name (str): The name of the course.</span>
+<span class="sd">        instructor (Instructor): The instructor assigned to the course.</span>
+<span class="sd">        students (list): A list of students enrolled in the course.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">course_id</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">instructor</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize the Course object with a course ID, course name, and instructor.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            course_id (str): The unique ID of the course.</span>
+<span class="sd">            course_name (str): The name of the course.</span>
+<span class="sd">            instructor (Instructor): The instructor assigned to the course.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_id</span> <span class="o">=</span> <span class="n">course_id</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">course_name</span> <span class="o">=</span> <span class="n">course_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">instructor</span> <span class="o">=</span> <span class="n">instructor</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span> <span class="o">=</span> <span class="p">[]</span>  
+
+<div class="viewcode-block" id="Course.add_student">
+<a class="viewcode-back" href="../models.html#models.Course.add_student">[docs]</a>
+    <span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">student</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Add a student to the course.</span>
+
+<span class="sd">        Parameters:</span>
+<span class="sd">            student (Student): The student to be added to the course.</span>
+
+<span class="sd">        Actions:</span>
+<span class="sd">            - Adds the student to the course&#39;s list of students.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">students</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">student</span><span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nader Al Masri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

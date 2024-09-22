@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models module &mdash; School Management System  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="pyqtgui module" href="pyqtgui.html" />
+    <link rel="prev" title="main module" href="main.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Lab2 With Database</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_management.html">data_management module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">database module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">models module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.Course"><code class="docutils literal notranslate"><span class="pre">Course</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.course_id"><code class="docutils literal notranslate"><span class="pre">Course.course_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.course_name"><code class="docutils literal notranslate"><span class="pre">Course.course_name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.instructor"><code class="docutils literal notranslate"><span class="pre">Course.instructor</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.students"><code class="docutils literal notranslate"><span class="pre">Course.students</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Course.add_student"><code class="docutils literal notranslate"><span class="pre">Course.add_student()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Instructor"><code class="docutils literal notranslate"><span class="pre">Instructor</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.instructor_id"><code class="docutils literal notranslate"><span class="pre">Instructor.instructor_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.assigned_courses"><code class="docutils literal notranslate"><span class="pre">Instructor.assigned_courses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Instructor.assign_course"><code class="docutils literal notranslate"><span class="pre">Instructor.assign_course()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Person"><code class="docutils literal notranslate"><span class="pre">Person</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.name"><code class="docutils literal notranslate"><span class="pre">Person.name</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.age"><code class="docutils literal notranslate"><span class="pre">Person.age</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person._email"><code class="docutils literal notranslate"><span class="pre">Person._email</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Person.introduce"><code class="docutils literal notranslate"><span class="pre">Person.introduce()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#models.Student"><code class="docutils literal notranslate"><span class="pre">Student</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.student_id"><code class="docutils literal notranslate"><span class="pre">Student.student_id</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.registered_courses"><code class="docutils literal notranslate"><span class="pre">Student.registered_courses</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#models.Student.register_course"><code class="docutils literal notranslate"><span class="pre">Student.register_course()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyqtgui.html">pyqtgui module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tkintergui.html">tkintergui module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Lab2 With Database</a></li>
+      <li class="breadcrumb-item active">models module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-models">
+<span id="models-module"></span><h1>models module<a class="headerlink" href="#module-models" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Course">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">Course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class representing a course.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.course_id">
+<span class="sig-name descname"><span class="pre">course_id</span></span><a class="headerlink" href="#models.Course.course_id" title="Link to this definition"></a></dt>
+<dd><p>The unique ID of the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.course_name">
+<span class="sig-name descname"><span class="pre">course_name</span></span><a class="headerlink" href="#models.Course.course_name" title="Link to this definition"></a></dt>
+<dd><p>The name of the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.instructor">
+<span class="sig-name descname"><span class="pre">instructor</span></span><a class="headerlink" href="#models.Course.instructor" title="Link to this definition"></a></dt>
+<dd><p>The instructor assigned to the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#models.Instructor" title="models.Instructor">Instructor</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Course.students">
+<span class="sig-name descname"><span class="pre">students</span></span><a class="headerlink" href="#models.Course.students" title="Link to this definition"></a></dt>
+<dd><p>A list of students enrolled in the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Course.add_student">
+<span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Course.add_student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Course.add_student" title="Link to this definition"></a></dt>
+<dd><p>Add a student to the course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> (<a class="reference internal" href="#models.Student" title="models.Student"><em>Student</em></a>) – The student to be added to the course.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Adds the student to the course’s list of students.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Instructor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">Instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Instructor"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#models.Person" title="models.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>A class representing an instructor, which inherits from the Person class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Instructor.instructor_id">
+<span class="sig-name descname"><span class="pre">instructor_id</span></span><a class="headerlink" href="#models.Instructor.instructor_id" title="Link to this definition"></a></dt>
+<dd><p>The unique ID of the instructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Instructor.assigned_courses">
+<span class="sig-name descname"><span class="pre">assigned_courses</span></span><a class="headerlink" href="#models.Instructor.assigned_courses" title="Link to this definition"></a></dt>
+<dd><p>A list of courses assigned to the instructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Instructor.assign_course">
+<span class="sig-name descname"><span class="pre">assign_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Instructor.assign_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Instructor.assign_course" title="Link to this definition"></a></dt>
+<dd><p>Assign the instructor to a course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course</strong> (<a class="reference internal" href="#models.Course" title="models.Course"><em>Course</em></a>) – The course to assign to the instructor.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Adds the course to the instructor’s list of assigned courses.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Person">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">Person</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Person"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A class representing a person with basic attributes like name, age, and email.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#models.Person.name" title="Link to this definition"></a></dt>
+<dd><p>The name of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person.age">
+<span class="sig-name descname"><span class="pre">age</span></span><a class="headerlink" href="#models.Person.age" title="Link to this definition"></a></dt>
+<dd><p>The age of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Person._email">
+<span class="sig-name descname"><span class="pre">_email</span></span><a class="headerlink" href="#models.Person._email" title="Link to this definition"></a></dt>
+<dd><p>The private email address of the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Person.introduce">
+<span class="sig-name descname"><span class="pre">introduce</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Person.introduce"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Person.introduce" title="Link to this definition"></a></dt>
+<dd><p>Introduce the person.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A string introducing the person with their name and age.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.Student">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.</span></span><span class="sig-name descname"><span class="pre">Student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Student"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#models.Person" title="models.Person"><code class="xref py py-class docutils literal notranslate"><span class="pre">Person</span></code></a></p>
+<p>A class representing a student, which inherits from the Person class.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Student.student_id">
+<span class="sig-name descname"><span class="pre">student_id</span></span><a class="headerlink" href="#models.Student.student_id" title="Link to this definition"></a></dt>
+<dd><p>The unique ID of the student.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="models.Student.registered_courses">
+<span class="sig-name descname"><span class="pre">registered_courses</span></span><a class="headerlink" href="#models.Student.registered_courses" title="Link to this definition"></a></dt>
+<dd><p>A list of courses the student has registered for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="models.Student.register_course">
+<span class="sig-name descname"><span class="pre">register_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models.html#Student.register_course"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.Student.register_course" title="Link to this definition"></a></dt>
+<dd><p>Register the student for a course.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course</strong> (<a class="reference internal" href="#models.Course" title="models.Course"><em>Course</em></a>) – The course to register the student for.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>Actions:</dt><dd><ul class="simple">
+<li><p>Adds the course to the student’s list of registered courses.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="main.html" class="btn btn-neutral float-left" title="main module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pyqtgui.html" class="btn btn-neutral float-right" title="pyqtgui module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nader Al Masri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
