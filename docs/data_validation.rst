@@ -1,7 +1,7 @@
-data\_management module
+data\_validation module
 =======================
 
-.. automodule:: data_management
+.. automodule:: data_validation
    :members:
    :undoc-members:
    :show-inheritance:

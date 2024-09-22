@@ -5,8 +5,8 @@ import sqlite3
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton, QTableWidget, QTableWidgetItem, \
     QVBoxLayout, QHBoxLayout, QWidget, QTabWidget, QComboBox, QMessageBox, QHeaderView, QDialog, QFileDialog
 from PyQt5.QtCore import Qt
-from database import create_database, add_student, add_instructor, add_course, fetch_students, fetch_instructors, fetch_courses, \
-    update_student, update_instructor, update_course, delete_student, delete_instructor, delete_course, fetch_registered_students
+from database import create_database, db_add_student, db_add_instructor, db_add_course, fetch_students, fetch_instructors, fetch_courses, \
+    db_update_student, db_update_instructor, db_update_course, delete_student, delete_instructor, delete_course, fetch_registered_students
 from models import Student, Instructor, Course
 
 """
@@ -639,7 +639,7 @@ class SchoolManagementSystemApp(QMainWindow):
         student_id = self.student_id.text()
 
         try:
-            add_student(student_id, name, int(age), email)
+            db_add_student(student_id, name, int(age), email)
             QMessageBox.information(self, "Success", "Student added successfully!")
             self.load_data()
         except sqlite3.IntegrityError:
@@ -662,7 +662,7 @@ class SchoolManagementSystemApp(QMainWindow):
         instructor_id = self.instructor_id.text()
 
         try:
-            add_instructor(instructor_id, name, int(age), email)
+            db_add_instructor(instructor_id, name, int(age), email)
             QMessageBox.information(self, "Success", "Instructor added successfully!")
             self.load_data()
         except sqlite3.IntegrityError:
@@ -686,7 +686,7 @@ class SchoolManagementSystemApp(QMainWindow):
         # Fetch the instructor's ID
         instructor = next((i for i in fetch_instructors() if i[1] == instructor_name), None)
         if instructor:
-            add_course(course_id, course_name, instructor[0])
+            db_add_course(course_id, course_name, instructor[0])
             QMessageBox.information(self, "Success", "Course added successfully!")
             self.load_data()
         else:
@@ -1033,7 +1033,7 @@ class SchoolManagementSystemApp(QMainWindow):
     Parameters:
         student (tuple): The student record being updated.
     """
-        update_student(
+        db_update_student(
             self.student_id.text(),
             self.student_name.text(),
             int(self.student_age.text()),
@@ -1080,7 +1080,7 @@ class SchoolManagementSystemApp(QMainWindow):
         - Resets the form for adding a new instructor.
         - Reloads the updated data into the UI.
     """
-        update_instructor(
+        db_update_instructor(
             self.instructor_id.text(),
             self.instructor_name.text(),
             int(self.instructor_age.text()),
@@ -1129,7 +1129,7 @@ class SchoolManagementSystemApp(QMainWindow):
         - Reloads the updated data into the UI.
     """
         instructor = next((i for i in fetch_instructors() if i[1] == self.course_instructor.currentText()), None)
-        update_course(
+        db_update_course(
             self.course_id.text(),
             self.course_name.text(),
             instructor[0] if instructor else None

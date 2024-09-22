@@ -52,7 +52,7 @@ def create_database():
 
     conn.commit()
     conn.close()
-def add_student(student_id, name, age, email):
+def db_add_student(student_id, name, age, email):
     """
     Add a new student to the Students table.
 
@@ -69,7 +69,7 @@ def add_student(student_id, name, age, email):
     conn.commit()
     conn.close()
 
-def add_instructor(instructor_id, name, age, email):
+def db_add_instructor(instructor_id, name, age, email):
     """
     Add a new instructor to the Instructors table.
 
@@ -86,7 +86,7 @@ def add_instructor(instructor_id, name, age, email):
     conn.commit()
     conn.close()
 
-def add_course(course_id, course_name, instructor_id):
+def db_add_course(course_id, course_name, instructor_id):
     """
     Add a new course to the Courses table.
 
@@ -97,6 +97,8 @@ def add_course(course_id, course_name, instructor_id):
     """
     conn = sqlite3.connect('school_management.db')
     cursor = conn.cursor()
+    if not instructor_id:
+        instructor_id=""
     cursor.execute('INSERT INTO courses (course_id, course_name, instructor_id) VALUES (?, ?, ?)', 
                    (course_id, course_name, instructor_id))
     conn.commit()
@@ -147,7 +149,7 @@ def fetch_courses():
     conn.close()
     return courses
 
-def update_student(student_id, name, age, email):
+def db_update_student(student_id, name, age, email):
     """
     Update the details of an existing student in the Students table.
 
@@ -187,7 +189,7 @@ def update_student(student_id, name, age, email):
         conn.close()
 
 
-def update_instructor(instructor_id, name, age, email):
+def db_update_instructor(instructor_id, name, age, email):
     """
     Update the details of an existing instructor in the Instructors table.
 
@@ -208,7 +210,7 @@ def update_instructor(instructor_id, name, age, email):
     conn.commit()
     conn.close()
 
-def update_course(course_id, course_name, instructor_id):
+def db_update_course(course_id, course_name, instructor_id):
     """
     Update the details of an existing course in the Courses table.
 
@@ -308,3 +310,78 @@ def fetch_registered_students(course_id):
     conn.close()
     
     return registered_students
+
+def db_register_student_to_course(student_name, course_id):
+    """
+    Registers a student to a course in the database.
+
+    This function fetches the student ID for the given `student_name` by searching 
+    through the students table. If the student is found, it inserts a new record 
+    into the `registrations` table to register the student for the specified course.
+
+    :param student_name: The name of the student to be registered.
+    :param course_id: The ID of the course the student is being registered for.
+
+    :raises sqlite3.Error: If the database insertion fails, the transaction is rolled back.
+
+    :return: None
+    """
+    conn = sqlite3.connect('school_management.db')
+    cursor = conn.cursor()
+    
+    student_id = None
+    students = fetch_students()
+    for student in students:
+        if student[1] == student_name:
+            student_id = student[0]
+            break
+    
+    if student_id:
+        try:
+            cursor.execute('INSERT INTO registrations (student_id, course_id) VALUES (?, ?)', (student_id, course_id))
+            conn.commit()
+        except sqlite3.Error as e:
+            conn.rollback()
+        finally:
+            conn.close()
+    else:
+        print("Error", f"Student {student_name} not found")
+
+# Function to assign an instructor to a course
+def db_assign_course_to_instructor(instructor_name, course_id):
+    """
+    Assigns an instructor to a course in the database.
+
+    This function fetches the instructor ID for the given `instructor_name` by searching 
+    through the instructors table. If the instructor is found, it updates the `courses` 
+    table to assign the instructor to the specified course.
+
+    :param instructor_name: The name of the instructor to assign.
+    :param course_id: The ID of the course the instructor is being assigned to.
+
+    :raises sqlite3.Error: If the database update fails, the transaction is rolled back.
+
+    :return: None
+    """
+    conn = sqlite3.connect('school_management.db')
+    cursor = conn.cursor()
+
+    instructor_id = None
+    instructors = fetch_instructors()
+    for instructor in instructors:
+        if instructor[1] == instructor_name:
+            instructor_id = instructor[0]
+            break
+    
+    if instructor_id:
+        try:
+            cursor.execute('UPDATE courses SET instructor_id = ? WHERE course_id = ?', (instructor_id, course_id))
+            conn.commit()
+            print("Success", f"{instructor_name} has been assigned to {course_id}")
+        except sqlite3.Error as e:
+            conn.rollback()
+            print("Error", str(e))
+        finally:
+            conn.close()
+    else:
+        print("Error", f"Instructor {instructor_name} not found")

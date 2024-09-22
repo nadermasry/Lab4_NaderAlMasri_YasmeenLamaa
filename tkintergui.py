@@ -8,7 +8,7 @@ from data_validation import validate_age,validate_course_id,validate_course_name
 import csv
 import sqlite3
 import shutil
-from database_schemas import db_add_student, db_add_instructor, db_add_course, db_update_student, db_update_instructor, db_update_course, delete_student, delete_instructor, delete_course, db_assign_course_to_instructor, db_register_student_to_course
+from database import db_add_student, db_add_instructor, db_add_course, db_update_student, db_update_instructor, db_update_course, delete_student, delete_instructor, delete_course, db_assign_course_to_instructor, db_register_student_to_course
 
 #sample data for demonstration 
 instructor_dict = {"Prof.Iman":Instructor("Prof.Iman", "25", "iman@hotmail.com", "1001", []),

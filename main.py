@@ -1,4 +1,6 @@
 import sys
+from database import create_database
+import subprocess
 
 def main():
     """
@@ -32,12 +34,12 @@ def main():
     choice = input("Enter the number of the framework you'd like to use: ")
     
     if choice == "1":
-        import tkinter as tk
-        from tkintergui import SchoolManagementSystemApp as TkinterApp
-
-        root = tk.Tk()
-        app = TkinterApp(root)
-        root.mainloop()
+        create_database()
+        # Execute the Tkinter GUI script
+        try:
+            subprocess.run(["python", "tkintergui.py"])
+        except Exception as e:
+            print(f"Error executing Tkinter GUI: {e}")
     
     elif choice == "2":
         from PyQt5.QtWidgets import QApplication
