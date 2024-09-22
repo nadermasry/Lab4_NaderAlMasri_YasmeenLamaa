@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>database &mdash; School Management System  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            School Management System
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modules.html">Lab2 With Database</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">School Management System</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Module code</a></li>
+      <li class="breadcrumb-item active">database</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for database</h1><div class="highlight"><pre>
+<span></span><span class="c1">#database.py</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+
+<div class="viewcode-block" id="create_database">
+<a class="viewcode-back" href="../database.html#database.create_database">[docs]</a>
+<span class="k">def</span> <span class="nf">create_database</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create the database and necessary tables for the School Management System.</span>
+
+<span class="sd">    This function creates four tables:</span>
+<span class="sd">    - Students: Stores student information (student_id, name, age, email).</span>
+<span class="sd">    - Instructors: Stores instructor information (instructor_id, name, age, email).</span>
+<span class="sd">    - Courses: Stores course information (course_id, course_name, instructor_id), and establishes</span>
+<span class="sd">      a foreign key relationship with the Instructors table.</span>
+<span class="sd">    - Registrations: Links students to courses, with foreign keys referencing both the Students and Courses tables.</span>
+
+<span class="sd">    If the tables already exist, they will not be recreated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="c1"># Create Students table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE IF NOT EXISTS students (</span>
+<span class="s1">        student_id TEXT PRIMARY KEY,</span>
+<span class="s1">        name TEXT NOT NULL,</span>
+<span class="s1">        age INTEGER NOT NULL,</span>
+<span class="s1">        email TEXT NOT NULL</span>
+<span class="s1">    )&#39;&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create Instructors table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE IF NOT EXISTS instructors (</span>
+<span class="s1">        instructor_id TEXT PRIMARY KEY,</span>
+<span class="s1">        name TEXT NOT NULL,</span>
+<span class="s1">        age INTEGER NOT NULL,</span>
+<span class="s1">        email TEXT NOT NULL</span>
+<span class="s1">    )&#39;&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create Courses table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE IF NOT EXISTS courses (</span>
+<span class="s1">        course_id TEXT PRIMARY KEY,</span>
+<span class="s1">        course_name TEXT NOT NULL,</span>
+<span class="s1">        instructor_id TEXT NOT NULL,</span>
+<span class="s1">        FOREIGN KEY (instructor_id) REFERENCES instructors(instructor_id)</span>
+<span class="s1">    )&#39;&#39;&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create Registrations table</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;CREATE TABLE IF NOT EXISTS registrations (</span>
+<span class="s1">        student_id TEXT,</span>
+<span class="s1">        course_id TEXT,</span>
+<span class="s1">        FOREIGN KEY (student_id) REFERENCES students(student_id),</span>
+<span class="s1">        FOREIGN KEY (course_id) REFERENCES courses(course_id),</span>
+<span class="s1">        PRIMARY KEY (student_id, course_id)</span>
+<span class="s1">    )&#39;&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="add_student">
+<a class="viewcode-back" href="../database.html#database.add_student">[docs]</a>
+<span class="k">def</span> <span class="nf">add_student</span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a new student to the Students table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        student_id (str): The unique identifier for the student.</span>
+<span class="sd">        name (str): The name of the student.</span>
+<span class="sd">        age (int): The age of the student.</span>
+<span class="sd">        email (str): The email of the student.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO students (student_id, name, age, email) VALUES (?, ?, ?, ?)&#39;</span><span class="p">,</span> 
+                   <span class="p">(</span><span class="n">student_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="add_instructor">
+<a class="viewcode-back" href="../database.html#database.add_instructor">[docs]</a>
+<span class="k">def</span> <span class="nf">add_instructor</span><span class="p">(</span><span class="n">instructor_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a new instructor to the Instructors table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        instructor_id (str): The unique identifier for the instructor.</span>
+<span class="sd">        name (str): The name of the instructor.</span>
+<span class="sd">        age (int): The age of the instructor.</span>
+<span class="sd">        email (str): The email of the instructor.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO instructors (instructor_id, name, age, email) VALUES (?, ?, ?, ?)&#39;</span><span class="p">,</span> 
+                   <span class="p">(</span><span class="n">instructor_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="add_course">
+<a class="viewcode-back" href="../database.html#database.add_course">[docs]</a>
+<span class="k">def</span> <span class="nf">add_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Add a new course to the Courses table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        course_id (str): The unique identifier for the course.</span>
+<span class="sd">        course_name (str): The name of the course.</span>
+<span class="sd">        instructor_id (str): The ID of the instructor assigned to the course (must exist in the Instructors table).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;INSERT INTO courses (course_id, course_name, instructor_id) VALUES (?, ?, ?)&#39;</span><span class="p">,</span> 
+                   <span class="p">(</span><span class="n">course_id</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="fetch_students">
+<a class="viewcode-back" href="../database.html#database.fetch_students">[docs]</a>
+<span class="k">def</span> <span class="nf">fetch_students</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch all students from the Students table.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of tuple: A list of all students, where each student is represented as a tuple </span>
+<span class="sd">        (student_id, name, age, email).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM students&#39;</span><span class="p">)</span>
+    <span class="n">students</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">students</span></div>
+
+
+<div class="viewcode-block" id="fetch_instructors">
+<a class="viewcode-back" href="../database.html#database.fetch_instructors">[docs]</a>
+<span class="k">def</span> <span class="nf">fetch_instructors</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch all instructors from the Instructors table.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of tuple: A list of all instructors, where each instructor is represented as a tuple </span>
+<span class="sd">        (instructor_id, name, age, email).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM instructors&#39;</span><span class="p">)</span>
+    <span class="n">instructors</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">instructors</span></div>
+
+
+<div class="viewcode-block" id="fetch_courses">
+<a class="viewcode-back" href="../database.html#database.fetch_courses">[docs]</a>
+<span class="k">def</span> <span class="nf">fetch_courses</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch all courses from the Courses table.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of tuple: A list of all courses, where each course is represented as a tuple </span>
+<span class="sd">        (course_id, course_name, instructor_id).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM courses&#39;</span><span class="p">)</span>
+    <span class="n">courses</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">courses</span></div>
+
+
+<div class="viewcode-block" id="update_student">
+<a class="viewcode-back" href="../database.html#database.update_student">[docs]</a>
+<span class="k">def</span> <span class="nf">update_student</span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the details of an existing student in the Students table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        student_id (str): The unique identifier of the student to update.</span>
+<span class="sd">        name (str): The updated name of the student.</span>
+<span class="sd">        age (int): The updated age of the student.</span>
+<span class="sd">        email (str): The updated email of the student.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Print statement to verify parameters</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Updating student: </span><span class="si">{</span><span class="n">student_id</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">email</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Update student details in the database</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">            UPDATE students </span>
+<span class="s1">            SET name = ?, age = ?, email = ?</span>
+<span class="s1">            WHERE student_id = ?</span>
+<span class="s1">        &#39;&#39;&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">student_id</span><span class="p">))</span>
+
+        <span class="c1"># Ensure that changes are committed to the database</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="c1"># Check if the update was successful</span>
+        <span class="k">if</span> <span class="n">cursor</span><span class="o">.</span><span class="n">rowcount</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No student found with ID: </span><span class="si">{</span><span class="n">student_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Student </span><span class="si">{</span><span class="n">student_id</span><span class="si">}</span><span class="s2"> updated successfully.&quot;</span><span class="p">)</span>
+
+    <span class="k">except</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">Error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;An error occurred: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="update_instructor">
+<a class="viewcode-back" href="../database.html#database.update_instructor">[docs]</a>
+<span class="k">def</span> <span class="nf">update_instructor</span><span class="p">(</span><span class="n">instructor_id</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the details of an existing instructor in the Instructors table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        instructor_id (str): The unique identifier of the instructor to update.</span>
+<span class="sd">        name (str): The updated name of the instructor.</span>
+<span class="sd">        age (int): The updated age of the instructor.</span>
+<span class="sd">        email (str): The updated email of the instructor.</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Updates the instructor&#39;s name, age, and email in the database for the specified instructor ID.</span>
+<span class="sd">        - Commits the changes to the database after the update.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE instructors SET name = ?, age = ?, email = ? WHERE instructor_id = ?&#39;</span><span class="p">,</span> 
+                   <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="update_course">
+<a class="viewcode-back" href="../database.html#database.update_course">[docs]</a>
+<span class="k">def</span> <span class="nf">update_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">,</span> <span class="n">course_name</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Update the details of an existing course in the Courses table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        course_id (str): The unique identifier of the course to update.</span>
+<span class="sd">        course_name (str): The updated name of the course.</span>
+<span class="sd">        instructor_id (str): The ID of the instructor assigned to the course.</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Updates the course name and instructor ID for the specified course.</span>
+<span class="sd">        - Commits the changes to the database after the update.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;UPDATE courses SET course_name = ?, instructor_id = ? WHERE course_id = ?&#39;</span><span class="p">,</span> 
+                   <span class="p">(</span><span class="n">course_name</span><span class="p">,</span> <span class="n">instructor_id</span><span class="p">,</span> <span class="n">course_id</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="delete_student">
+<a class="viewcode-back" href="../database.html#database.delete_student">[docs]</a>
+<span class="k">def</span> <span class="nf">delete_student</span><span class="p">(</span><span class="n">student_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delete a student from the Students table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        student_id (str): The unique identifier of the student to delete.</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Deletes the student from the database based on the student ID.</span>
+<span class="sd">        - Commits the deletion to the database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM students WHERE student_id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">student_id</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="delete_instructor">
+<a class="viewcode-back" href="../database.html#database.delete_instructor">[docs]</a>
+<span class="k">def</span> <span class="nf">delete_instructor</span><span class="p">(</span><span class="n">instructor_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delete an instructor from the Instructors table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        instructor_id (str): The unique identifier of the instructor to delete.</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Deletes the instructor from the database based on the instructor ID.</span>
+<span class="sd">        - Commits the deletion to the database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM instructors WHERE instructor_id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">instructor_id</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="delete_course">
+<a class="viewcode-back" href="../database.html#database.delete_course">[docs]</a>
+<span class="k">def</span> <span class="nf">delete_course</span><span class="p">(</span><span class="n">course_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Delete a course from the Courses table.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        course_id (str): The unique identifier of the course to delete.</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Deletes the course from the database based on the course ID.</span>
+<span class="sd">        - Commits the deletion to the database.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s1">&#39;DELETE FROM courses WHERE course_id = ?&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">course_id</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="fetch_registered_students">
+<a class="viewcode-back" href="../database.html#database.fetch_registered_students">[docs]</a>
+<span class="k">def</span> <span class="nf">fetch_registered_students</span><span class="p">(</span><span class="n">course_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetch all students registered for a specific course by course ID.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        course_id (str): The unique identifier of the course.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        list of tuple: A list of students registered for the course, where each student is represented </span>
+<span class="sd">        as a tuple (student_id, name, email, age).</span>
+
+<span class="sd">    Actions:</span>
+<span class="sd">        - Queries the database to retrieve all students who are registered for the specified course.</span>
+<span class="sd">        - Joins the Students and Registrations tables to obtain the details of registered students.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;school_management.db&#39;</span><span class="p">)</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    
+    <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">    SELECT students.student_id, students.name, students.email, students.age </span>
+<span class="s1">    FROM students</span>
+<span class="s1">    JOIN registrations ON students.student_id = registrations.student_id</span>
+<span class="s1">    WHERE registrations.course_id = ?</span>
+<span class="s1">    &#39;&#39;&#39;</span>
+    
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">course_id</span><span class="p">,))</span>
+    <span class="n">registered_students</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">registered_students</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Nader Al Masri.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
