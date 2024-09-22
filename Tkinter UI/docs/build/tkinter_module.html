@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tkinter GUI Module Documentation &#8212; School Management System  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=c058f7c8" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-tkintergui">
+<span id="tkinter-gui-module-documentation"></span><h1>Tkinter GUI Module Documentation<a class="headerlink" href="#module-tkintergui" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.add_course">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">add_course</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.add_course" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a course to the database and updates the GUI.</p>
+<p>This function retrieves course details (course ID, course name) from input fields,
+along with the selected instructor and enrolled students from the listboxes. It creates 
+a Course object, stores the course in both an internal dictionary and the database, 
+and refreshes the relevant GUI components.</p>
+<p>The function also handles any errors that occur during course creation or database insertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If there is an error while creating the Course object or adding the course to the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.add_instructor">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">add_instructor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.add_instructor" title="Link to this definition">¶</a></dt>
+<dd><p>Adds an instructor to the database and updates the GUI.</p>
+<p>This function retrieves instructor details (name, age, email, instructor ID) from input fields,
+along with the selected courses from the listbox. It creates an Instructor object, stores the
+instructor in both an internal dictionary and the database, and refreshes the relevant GUI components.</p>
+<p>The function also handles errors that occur during instructor creation or database insertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If there is an error while creating the Instructor object or adding the instructor to the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.add_student">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">add_student</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.add_student" title="Link to this definition">¶</a></dt>
+<dd><p>Adds a student to the database and updates the GUI.</p>
+<p>This function retrieves student details (name, age, email, student ID) from input fields
+and the selected courses from the listbox. It then creates a Student object, stores the
+student in both an internal dictionary and the database, and refreshes the GUI components.</p>
+<p>The function also handles any errors that occur during student creation or database insertion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If there is an error while creating the Student object or adding the student to the database.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.assign_course_to_instructor">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">assign_course_to_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.assign_course_to_instructor" title="Link to this definition">¶</a></dt>
+<dd><p>Assigns a course to an instructor and updates the database and GUI.</p>
+<p>This function retrieves the instructor and course objects based on the provided 
+instructor name and course ID. If both are valid, it assigns the course to the 
+instructor, updates the database, and refreshes the GUI components to reflect 
+the new assignment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor_name</strong> – The name of the instructor to be assigned to a course (string).</p></li>
+<li><p><strong>course_id</strong> – The ID of the course to assign to the instructor (string).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the instructor or course does not exist in the respective dictionaries.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.backup_database">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">backup_database</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.backup_database" title="Link to this definition">¶</a></dt>
+<dd><p>Creates a backup of the SQLite database and saves it to a user-specified location.</p>
+<p>This function prompts the user to choose a location and filename for saving the database backup.
+It then copies the existing SQLite database file (<cite>school_management.db</cite>) to the specified location. 
+A success message is shown upon successful backup creation. If an error occurs during the process, 
+an error message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If the process of copying the database file fails.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.clear_edit_forms">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">clear_edit_forms</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.clear_edit_forms" title="Link to this definition">¶</a></dt>
+<dd><p>Clears any existing edit forms from the GUI before displaying a new form.</p>
+<p>This function removes all widgets from row 2 of the main grid layout, which is where 
+the edit forms are displayed. After clearing the forms, it resets the search and 
+edit/delete buttons by calling <cite>setup_search()</cite> and <cite>setup_edit_delete_buttons()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.delete_record">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">delete_record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.delete_record" title="Link to this definition">¶</a></dt>
+<dd><p>Deletes the selected record from the Treeview and updates the corresponding data structure and database.</p>
+<p>This function identifies the currently selected item in the focused Treeview (students, instructors, or courses),
+confirms the deletion with the user, and then deletes the corresponding record from the internal data dictionary 
+and the SQLite database. If the deletion is successful, it removes the item from the Treeview and displays 
+a success message.</p>
+<p>The function supports deletion for:
+- Students: Removes from <cite>student_dict</cite> and the database via <cite>delete_student()</cite>.
+- Instructors: Removes from <cite>instructor_dict</cite> and the database via <cite>delete_instructor()</cite>.
+- Courses: Removes from <cite>course_dict</cite> and the database via <cite>delete_course()</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Displays an error message if no item is selected or if the deletion is not confirmed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.edit_record">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">edit_record</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.edit_record" title="Link to this definition">¶</a></dt>
+<dd><p>Opens an edit form for the selected student, instructor, or course.</p>
+<p>This function checks which record is currently selected in the respective Treeview 
+(students, instructors, or courses). Based on the selected record, it opens the appropriate 
+edit form, populating the form with the selected record’s details.</p>
+<p>The function supports editing for:
+- Students: Calls <cite>populate_edit_form_student()</cite> to open the edit form for a student.
+- Instructors: Calls <cite>populate_edit_form_instructor()</cite> to open the edit form for an instructor.
+- Courses: Calls <cite>populate_edit_form_course()</cite> to open the edit form for a course.</p>
+<p>If no record is selected, it displays an error message prompting the user to select a record.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Displays an error message if no record is selected.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.export_to_csv">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">export_to_csv</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.export_to_csv" title="Link to this definition">¶</a></dt>
+<dd><p>Exports the current data (students, instructors, and courses) to a CSV file.</p>
+<p>This function prompts the user to select a location to save the CSV file. It exports the 
+details of students, instructors, and courses from <cite>student_dict</cite>, <cite>instructor_dict</cite>, and 
+<cite>course_dict</cite> into the CSV file with appropriate headers. Each student’s registered courses, 
+instructor’s assigned courses, and the course’s enrolled students are included.</p>
+<p>A success message is displayed when the export completes successfully. If an error occurs 
+during the export, an error message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If the export process fails due to file handling or data writing issues.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.filter_treeview">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">filter_treeview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_criteria</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.filter_treeview" title="Link to this definition">¶</a></dt>
+<dd><p>Filters and displays records in a Treeview widget based on a specified filter criteria.</p>
+<p>This function clears the current entries in the given Treeview widget, iterates through 
+the records in <cite>data_dict</cite>, and populates the Treeview with records that meet the 
+provided <cite>filter_criteria</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tree</strong> – The Treeview widget to update with filtered records.</p></li>
+<li><p><strong>data_dict</strong> – The dictionary of records (students, instructors, or courses) to filter.</p></li>
+<li><p><strong>filter_criteria</strong> – A lambda function used to determine whether a record should be displayed.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.load_data">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.load_data" title="Link to this definition">¶</a></dt>
+<dd><p>Loads data (students, instructors, and courses) from a JSON file into the application.</p>
+<p>This function prompts the user to select a JSON file containing saved data. It clears 
+the current data in <cite>student_dict</cite>, <cite>instructor_dict</cite>, and <cite>course_dict</cite>, and reconstructs 
+<cite>Student</cite>, <cite>Instructor</cite>, and <cite>Course</cite> objects from the loaded data. The data is then 
+displayed in the Treeview widgets, and a success message is shown upon successful loading.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If loading the JSON file or reconstructing the data fails, an error message is displayed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.populate_edit_form_course">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">populate_edit_form_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.populate_edit_form_course" title="Link to this definition">¶</a></dt>
+<dd><p>Populates the edit form with the selected course’s details for editing.</p>
+<p>This function clears any existing edit forms and opens a new form populated with 
+the details of the selected course. The form includes fields for the course ID 
+and course name. The user can modify these fields and save changes using the 
+‘Save Changes’ button, which calls <cite>update_course()</cite> to apply the updates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>course</strong> – The <cite>Course</cite> object whose details are to be edited.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.populate_edit_form_instructor">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">populate_edit_form_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.populate_edit_form_instructor" title="Link to this definition">¶</a></dt>
+<dd><p>Populates the edit form with the selected instructor’s details for editing.</p>
+<p>This function clears any existing edit forms and opens a new form populated with 
+the details of the selected instructor. The form includes fields for the instructor’s 
+name, age, email, and instructor ID. The user can modify these fields and save changes 
+using the ‘Save Changes’ button, which calls <cite>update_instructor()</cite> to apply the updates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>instructor</strong> – The <cite>Instructor</cite> object whose details are to be edited.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.populate_edit_form_student">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">populate_edit_form_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.populate_edit_form_student" title="Link to this definition">¶</a></dt>
+<dd><p>Populates the edit form with the selected student’s details for editing.</p>
+<p>This function clears any existing edit forms and opens a new form populated with 
+the details of the selected student. The form includes fields for the student’s 
+name, age, email, and student ID. The user can modify these fields and save changes 
+using the ‘Save Changes’ button, which calls <cite>update_student()</cite> to apply the updates.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>student</strong> – The <cite>Student</cite> object whose details are to be edited.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.populate_treeview">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">populate_treeview</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tree</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">record</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.populate_treeview" title="Link to this definition">¶</a></dt>
+<dd><p>Populates a Treeview widget with a student’s, instructor’s, or course’s details.</p>
+<p>This function inserts data into a Treeview widget based on the type of <cite>record</cite> 
+provided. It handles three types of records:
+- Student: Inserts student name, age, email, student ID, and registered courses.
+- Instructor: Inserts instructor name, age, email, instructor ID, and assigned courses.
+- Course: Inserts course ID, course name, instructor name, and enrolled students.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tree</strong> – The Treeview widget where the record will be displayed.</p></li>
+<li><p><strong>record</strong> – The record object to be inserted (could be a Student, Instructor, or Course).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.refresh_treeviews">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">refresh_treeviews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.refresh_treeviews" title="Link to this definition">¶</a></dt>
+<dd><p>Refreshes the Treeview widgets for students, instructors, and courses.</p>
+<p>This function clears all existing entries from the student, instructor, and course 
+Treeviews, and then repopulates them with the updated data from <cite>student_dict</cite>, 
+<cite>instructor_dict</cite>, and <cite>course_dict</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.register_course">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">register_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.register_course" title="Link to this definition">¶</a></dt>
+<dd><p>Registers a student to a course and updates the database and GUI.</p>
+<p>This function retrieves the student and course based on the provided student name
+and course ID. If valid, the student is registered for the course, and the registration
+is added to the database. The function also updates the course with the enrolled student
+and refreshes the GUI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student_name</strong> – The name of the student to be registered (string).</p></li>
+<li><p><strong>course_id</strong> – The ID of the course the student is registering for (string).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If the student or course does not exist in the respective dictionaries.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.save_data">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.save_data" title="Link to this definition">¶</a></dt>
+<dd><p>Saves the current data (students, instructors, and courses) to a JSON file.</p>
+<p>This function converts the data from the internal dictionaries (<cite>student_dict</cite>, <cite>instructor_dict</cite>, <cite>course_dict</cite>) 
+into a serializable format by calling each object’s <cite>change_to_dictionary()</cite> method. It then prompts the user 
+to select a file location and saves the data as a JSON file. If the process is successful, a success message 
+is shown; otherwise, an error message is displayed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>Exception</strong> – If the process of saving the data to a JSON file fails.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.search_all">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">search_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">search_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.search_all" title="Link to this definition">¶</a></dt>
+<dd><p>Searches for records across students, instructors, and courses based on the provided search type and value.</p>
+<p>This function performs a case-insensitive search for a specific value across student, instructor, and course 
+records based on the selected search type (<cite>id</cite>, <cite>name</cite>, or <cite>course_id</cite>). The search value is stripped of 
+leading and trailing whitespace and converted to lowercase for comparison.</p>
+<p>The function applies the search filter to all relevant Treeviews:
+- If searching by <cite>id</cite>, it checks for matching student or instructor IDs.
+- If searching by <cite>name</cite>, it checks for matching student or instructor names.
+- If searching by <cite>course_id</cite>, it checks for matching course IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>search_type</strong> – The type of search to perform (either ‘id’, ‘name’, or ‘course_id’).</p></li>
+<li><p><strong>search_value</strong> – The value to search for in the records.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_course_registration_ui">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_course_registration_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_course_registration_ui" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the UI for course registration in the GUI.</p>
+<p>This function creates and configures the widgets (labels, comboboxes, and a button)
+necessary for registering students to courses. It places the widgets on the grid 
+and populates the comboboxes with the available students and courses.</p>
+<p>The ‘Register Course’ button is connected to the <cite>register_course()</cite> function, which 
+handles the actual course registration logic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_edit_delete_buttons">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_edit_delete_buttons</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_edit_delete_buttons" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the ‘Edit’ and ‘Delete’ buttons in the GUI for managing records.</p>
+<p>This function creates and places buttons in the main application window for editing 
+and deleting the selected item from the Treeview. The ‘Edit Selected’ button triggers 
+the <cite>edit_record()</cite> function, while the ‘Delete Selected’ button triggers the <cite>delete_record()</cite> function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>root</strong> – The root window of the Tkinter application where the buttons will be placed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_instructor_assignment_ui">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_instructor_assignment_ui</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_instructor_assignment_ui" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the UI for assigning courses to instructors in the GUI.</p>
+<p>This function creates and configures the widgets (labels, comboboxes, and a button) 
+necessary for assigning courses to instructors. It places the widgets on the grid 
+and populates the comboboxes with the list of available instructors and courses.</p>
+<p>The ‘Assign Course’ button is connected to the <cite>assign_course_to_instructor()</cite> function, 
+which handles the logic of assigning a course to an instructor.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_save_data">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_save_data</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_save_data" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the buttons for saving, loading, exporting, and backing up data in the GUI.</p>
+<p>This function creates and places buttons in the main window for the following actions:
+- ‘Save Data’: Triggers the <cite>save_data()</cite> function to save current data.
+- ‘Load Data’: Triggers the <cite>load_data()</cite> function to load saved data.
+- ‘Export to CSV’: Triggers the <cite>export_to_csv()</cite> function to export data to a CSV file.
+- ‘Backup Database’: Triggers the <cite>backup_database()</cite> function to create a backup of the database.</p>
+<p>The buttons are placed in row 3 of the main grid layout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_scrollbars">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_scrollbars</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tree</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_scrollbars" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up vertical and horizontal scrollbars for a Treeview widget in the GUI.</p>
+<p>This function adds both vertical and horizontal scrollbars to a Treeview widget. 
+The scrollbars are linked to the Treeview’s scrolling functionality and are placed 
+inside the specified frame. The frame’s grid configuration is adjusted to ensure 
+proper resizing behavior for the scrollbars and Treeview.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame</strong> – The frame that contains the Treeview and scrollbars.</p></li>
+<li><p><strong>tree</strong> – The Treeview widget to which the scrollbars are being added.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_search">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_search</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_search" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the search interface in the GUI.</p>
+<p>This function creates a search area with three search options: 
+- Search by Person ID
+- Search by Person Name
+- Search by Course ID</p>
+<p>Each search option has an entry field and a corresponding button that triggers 
+the <cite>search_all()</cite> function based on the input. Additionally, there is a ‘Refresh Back’ 
+button that refreshes the Treeviews to display all entries again.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.setup_treeviews">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">setup_treeviews</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.setup_treeviews" title="Link to this definition">¶</a></dt>
+<dd><p>Sets up the Treeview widgets for displaying students, instructors, and courses in the GUI.</p>
+<p>This function creates labeled frames and Treeview widgets for displaying information
+about students, instructors, and courses. Each Treeview is populated with the corresponding
+data from <cite>student_dict</cite>, <cite>instructor_dict</cite>, and <cite>course_dict</cite>. Scrollbars are added to
+each Treeview for easier navigation.</p>
+<p>The Treeviews display columns such as name, age, email, student/instructor ID, courses, 
+and assigned/enrolled students.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_comboboxes">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_comboboxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student_combobox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_combobox</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_comboboxes" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the student and course comboboxes in the GUI.</p>
+<p>This function populates the student combobox with the list of available student names 
+from <cite>student_dict</cite>, and the course combobox with the list of available course IDs 
+from <cite>course_dict</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student_combobox</strong> – The combobox for selecting students in the GUI.</p></li>
+<li><p><strong>course_combobox</strong> – The combobox for selecting courses in the GUI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_course">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_course</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">course</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_id_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_name_entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_course" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the details of a course and refreshes the GUI.</p>
+<p>This function validates the input fields for the course ID and course name. 
+If the validation passes, it updates the corresponding <cite>Course</cite> object’s attributes 
+and the SQLite database. The Treeview is refreshed to reflect the changes, and the 
+edit form is cleared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>course</strong> – The <cite>Course</cite> object to be updated.</p></li>
+<li><p><strong>course_id_entry</strong> – The entry widget containing the updated course ID.</p></li>
+<li><p><strong>course_name_entry</strong> – The entry widget containing the updated course name.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If any of the validations for course ID or course name fail.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_courses_listbox">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_courses_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_courses_listbox" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the courses listbox in the GUI.</p>
+<p>This function clears the current content of the courses listbox, adjusts its height
+based on the number of courses in the <cite>course_dict</cite>, and repopulates the listbox with 
+the updated list of course IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_enrolled_students_listbox">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_enrolled_students_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_enrolled_students_listbox" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the enrolled students listbox in the GUI.</p>
+<p>This function clears the current content of the enrolled students listbox, adjusts its height
+based on the number of students in <cite>student_dict</cite>, and repopulates the listbox with the 
+updated list of student names.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_instructor">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_instructor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">instructor_id_entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_instructor" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the details of an instructor and refreshes the GUI.</p>
+<p>This function validates the input fields for the instructor’s name, age, email, and instructor ID.
+If the validation passes, it updates the corresponding <cite>Instructor</cite> object’s attributes and 
+the SQLite database. The Treeview is refreshed to reflect the changes, and the edit form is cleared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor</strong> – The <cite>Instructor</cite> object to be updated.</p></li>
+<li><p><strong>name_entry</strong> – The entry widget containing the instructor’s updated name.</p></li>
+<li><p><strong>age_entry</strong> – The entry widget containing the instructor’s updated age.</p></li>
+<li><p><strong>email_entry</strong> – The entry widget containing the instructor’s updated email.</p></li>
+<li><p><strong>instructor_id_entry</strong> – The entry widget containing the instructor’s updated ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If any of the validations for name, age, email, or instructor ID fail.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_instructor_combobox">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_instructor_combobox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_instructor_combobox" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the instructor combobox in the GUI.</p>
+<p>This function retrieves the list of instructor names from <cite>instructor_dict</cite>
+and updates the combobox to reflect the current list of available instructors.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_instructor_course_comboboxes">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_instructor_course_comboboxes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instructor_combobox</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">course_combobox</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_instructor_course_comboboxes" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the instructor and course comboboxes in the GUI.</p>
+<p>This function populates the instructor combobox with the list of available instructor names 
+from <cite>instructor_dict</cite>, and the course combobox with the list of available course IDs 
+from <cite>course_dict</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instructor_combobox</strong> – The combobox for selecting instructors in the GUI.</p></li>
+<li><p><strong>course_combobox</strong> – The combobox for selecting courses in the GUI.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_instructor_courses_listbox">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_instructor_courses_listbox</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_instructor_courses_listbox" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the instructor courses listbox in the GUI.</p>
+<p>This function clears the current content of the instructor courses listbox, adjusts its height
+based on the number of courses in the <cite>course_dict</cite>, and repopulates the listbox with the 
+updated list of course IDs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="tkintergui.update_student">
+<span class="sig-prename descclassname"><span class="pre">tkintergui.</span></span><span class="sig-name descname"><span class="pre">update_student</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">student</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">age_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">email_entry</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">student_id_entry</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#tkintergui.update_student" title="Link to this definition">¶</a></dt>
+<dd><p>Updates the details of a student and refreshes the GUI.</p>
+<p>This function validates the input fields for the student’s name, age, email, and student ID. 
+If the validation passes, it updates the corresponding <cite>Student</cite> object’s attributes and 
+the SQLite database. The Treeview is refreshed to reflect the changes, and the edit form 
+is cleared.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>student</strong> – The <cite>Student</cite> object to be updated.</p></li>
+<li><p><strong>name_entry</strong> – The entry widget containing the student’s updated name.</p></li>
+<li><p><strong>age_entry</strong> – The entry widget containing the student’s updated age.</p></li>
+<li><p><strong>email_entry</strong> – The entry widget containing the student’s updated email.</p></li>
+<li><p><strong>student_id_entry</strong> – The entry widget containing the student’s updated ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If any of the validations for name, age, email, or student ID fail.</p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">School Management System</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2024, Yasmeen Lamaa.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.0.2</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/tkinter_module.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
