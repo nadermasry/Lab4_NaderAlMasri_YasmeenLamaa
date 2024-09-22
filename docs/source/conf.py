@@ -10,8 +10,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../..'))
 
 project = 'School Management System'
-copyright = '2024, Nader Al Masri'
-author = 'Nader Al Masri'
+copyright = '2024, Nader Al Masri, Yasmeen Lamaa'
+author = 'Nader Al Masri, Yasmeen Lamaa'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
